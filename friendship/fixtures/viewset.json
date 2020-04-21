@@ -1,0 +1,69 @@
+[
+    {
+        "model": "users.user", 
+        "pk": 1, 
+        "fields": {
+            "email": "python@mail.fr",
+            "password": "langage2020"
+        }
+    },
+    {
+        "model": "users.user", 
+        "pk": 2, 
+        "fields": {
+            "email": "django@mail.fr",
+            "password": "framework2020"
+        }
+    },
+    {
+        "model": "users.user", 
+        "pk": 3, 
+        "fields": {
+            "email": "avril@mail.fr",
+            "password": "mois2020"
+        }
+    },
+    {
+        "model": "users.user", 
+        "pk": 4, 
+        "fields": {
+            "email": "decembre@mail.fr",
+            "password": "hiver2020"
+        }
+    },
+    {
+        "model": "users.user", 
+        "pk": 5, 
+        "fields": {
+            "email": "ville@mail.fr",
+            "password": "europe2020"
+        }
+    },
+    {
+        "model": "friendship.friendship", 
+        "pk": 1, 
+        "fields": {
+            "sender": 1,
+            "receiver": 2,
+            "status": "y"
+        }
+    },
+    {
+        "model": "friendship.friendship", 
+        "pk": 2, 
+        "fields": {
+            "sender": 3,
+            "receiver": 2,
+            "status": "y"
+        }
+    },
+    {
+        "model": "friendship.friendship", 
+        "pk": 3, 
+        "fields": {
+            "sender": 5,
+            "receiver": 3,
+            "status": "w"
+        }
+    }
+]

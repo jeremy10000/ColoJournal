@@ -1,3 +1,10 @@
 from django.contrib import admin
+from friendship.models import Friendship
 
-# Register your models here.
+
+class FriendshipAdmin(admin.ModelAdmin):
+
+    list_display = ("id", "sender", "receiver", "status")
+
+
+admin.site.register(Friendship, FriendshipAdmin)

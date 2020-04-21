@@ -1,0 +1,25 @@
+language: python
+
+python:
+  - '3.6'
+
+branches:
+  only:
+    - journal-api
+    - users-api
+    - friendship-api
+    - tests
+    - stable
+    - travis
+
+before_script:
+  - psql -c 'create database travis_ci_test;' -U postgres
+  - pip install -r requirements.txt
+
+env: DJANGO_SETTINGS_MODULE="colojournal.settings.travis"
+
+services:
+  - postgresql
+
+script:
+  - ./manage.py test

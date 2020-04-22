@@ -1,0 +1,109 @@
+[
+    {
+        "model": "users.user", 
+        "pk": 1, 
+        "fields": {
+            "email": "python@mail.fr",
+            "password": "langage2020"
+        }
+    },
+    {
+        "model": "users.user", 
+        "pk": 2, 
+        "fields": {
+            "email": "django@mail.fr",
+            "password": "framework2020"
+        }
+    },
+    {
+        "model": "users.user", 
+        "pk": 3, 
+        "fields": {
+            "email": "avril@mail.fr",
+            "password": "mois2020"
+        }
+    },
+    {
+        "model": "users.user", 
+        "pk": 4, 
+        "fields": {
+            "email": "decembre@mail.fr",
+            "password": "hiver2020"
+        }
+    },
+    {
+        "model": "users.user", 
+        "pk": 5, 
+        "fields": {
+            "email": "ville@mail.fr",
+            "password": "europe2020"
+        }
+    },
+    {
+        "model": "journal.journal", 
+        "pk": 1, 
+        "fields": {
+            "name": "Thailande",
+            "user": 1,
+            "shared": false,
+            "date": "2020-01-20"
+        }
+    },
+    {
+        "model": "journal.journal", 
+        "pk": 2, 
+        "fields": {
+            "name": "Suisse",
+            "user": 1,
+            "shared": false,
+            "date": "2020-04-06"
+        }
+    },
+    {
+        "model": "journal.journal", 
+        "pk": 3, 
+        "fields": {
+            "name": "Égypte",
+            "user": 1,
+            "shared": false,
+            "date": "2020-03-23"
+        }
+    },
+    {
+        "model": "journal.journal", 
+        "pk": 4, 
+        "fields": {
+            "name": "Panama",
+            "user": 2,
+            "shared": false,
+            "date": "2020-01-20"
+        }
+    },
+    {
+        "model": "journal.page", 
+        "pk": 1, 
+        "fields": {
+            "name": "Premier jour",
+            "journal": 1,
+            "text": "Ce samedi on a..."
+        }
+    },
+    {
+        "model": "journal.page", 
+        "pk": 2, 
+        "fields": {
+            "name": "Deuxième jour",
+            "journal": 1,
+            "text": "Il a fait très chaud !"
+        }
+    },
+    {
+        "model": "journal.page", 
+        "pk": 3, 
+        "fields": {
+            "name": "La capitale",
+            "journal": 4,
+            "text": "Nous avons visités..."
+        }
+    }
+]

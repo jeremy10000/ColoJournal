@@ -23,5 +23,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/login/', ObtainAuthToken.as_view()),
     path('api/', include('users.api.urls')),
-    path('api/', include('friendship.api.urls'))
+    path('api/', include('friendship.api.urls')),
+    path('api/', include('journal.api.urls'))
 ]

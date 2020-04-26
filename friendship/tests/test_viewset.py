@@ -28,7 +28,8 @@ class FriendshipViewSetTestCase(APITestCase):
         response = self.client.get("/api/friendship/")
         self.assertEqual(len(response.data.get('yes')), 1)
         self.assertEqual(len(response.data.get('no')), 0)
-        self.assertEqual(len(response.data.get('waiting')), 1)
+        self.assertEqual(len(response.data.get('waiting')), 0)
+        self.assertEqual(len(response.data.get('received')), 1)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
     def test_retrieve_is_sender_or_receiver(self):
@@ -63,7 +64,7 @@ class FriendshipViewSetTestCase(APITestCase):
         data = {"sender": "python@mail.fr", "receiver": "decembre@mail.fr",
                 "status": "w"}
         response = self.client.post("/api/friendship/", data)
-        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
+        self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
 
     def test_destroy_user_is_sender_or_receiver(self):
         response = self.client.delete("/api/friendship/2/")

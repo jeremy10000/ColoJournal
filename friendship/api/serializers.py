@@ -31,8 +31,8 @@ class FriendshipSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         """ Update a new instance. """
-        new_status = validated_data.get('status', None)
 
+        new_status = validated_data.get('status', None)
         status_accepted = ["y", "n", "w"]
 
         if new_status not in status_accepted:

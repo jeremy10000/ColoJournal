@@ -1,0 +1,32 @@
+<!-- single journal -->
+<div fxLayout="row wrap" fxFlex.lt-md="100%" fxLayoutAlign="center none" 
+class="w-960 margin-a h-auto mt-15">
+
+    <!-- title bar -->
+    <h2 class="title">{{journalName}}</h2>
+
+    <!-- toolbar -->
+    <div class="toolbar">
+        <button mat-stroked-button (click)="addPage()" style="margin-right: 10px">
+            <mat-icon>create</mat-icon> Ajouter une page
+        </button>
+
+    <button mat-stroked-button (click)="editJournal()" style="margin-right: 10px">
+        <mat-icon>settings</mat-icon>
+    </button>
+    <button mat-stroked-button (click)="deleteJournal()">
+        <mat-icon>delete</mat-icon>
+    </button>
+    </div>
+
+
+<mat-table *ngIf="showTable" [dataSource]="pages" class="mat-elevation-z8 h-auto w-1p">
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Pages </mat-header-cell>
+    <mat-cell *matCellDef="let element"><button mat-button (click)="openDialog(element)"> {{element.name}} </button></mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

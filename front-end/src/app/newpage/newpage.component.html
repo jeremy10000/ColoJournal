@@ -1,0 +1,23 @@
+<!-- new page -->
+<div fxLayout="row wrap" fxFlex.lt-md="100%" fxLayoutAlign="center none" 
+class="w-960 mh-1 margin-a tac">
+
+<form (ngSubmit)="onSubmit(f)" #f="ngForm" class="w-1p h-500">
+  <div style="tac">
+        <mat-error *ngIf="myformError" class="mb-15 mt-15">Remplissez correctement le formulaire.</mat-error>
+        <mat-form-field appearance="fill" class="w-350 fs-18 mb-15 mt-15">
+            <mat-label>Titre de la page</mat-label>
+            <input matInput type="text" id="title" name="title" ngModel>
+        </mat-form-field>
+        </div>
+    <div class="tal mb-15">
+    <ejs-richtexteditor id='defaultRTE' [height]='height' [toolbarSettings]='tools' #rte [ngModel]="textContent" name="content">
+        <ng-template #valueTemplate>
+        <p class="d-none">Rich Text Editor</p>
+        </ng-template>
+    </ejs-richtexteditor>
+    </div>
+
+    <button mat-flat-button color="primary" type="submit" class="mb-35">Créer</button>
+</form>
+</div>

@@ -1,0 +1,31 @@
+<!-- home page -->
+<div fxLayout="row wrap"
+     fxFlex.lt-md="100%"
+     fxLayoutAlign="center none"
+     class="w-960 h-500 margin-a">
+
+  <!-- Image -->
+  <div class="w-480 h-500 image-home" fxFlex.lt-md="100%" ngClass.lt-md="d-none"></div>
+
+  <!-- Login Form -->
+  <div fxFlex.lt-md="100%" class="tac w-480 h-500">
+
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="mt-30">
+        <mat-error *ngIf="myformError" class="mb-15">Remplissez correctement le formulaire.</mat-error>
+            <mat-form-field appearance="fill" class="w-350 fs-18">
+             <mat-label>Email</mat-label>
+            <input matInput type="text" id="username" name="username" ngModel>
+            </mat-form-field>
+        </div>
+        <div class="tac">
+            <mat-form-field appearance="fill" class="w-350 fs-18">
+             <mat-label>Mot de passe</mat-label>
+            <input matInput type="password" id="password" name="password" ngModel>
+            </mat-form-field>
+        </div>
+
+        <button mat-flat-button color="primary" type="submit">Connexion</button>
+    </form>
+   </div>
+</div>

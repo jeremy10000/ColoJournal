@@ -1,0 +1,51 @@
+<!-- navbar -->
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+  <div fxHide.gt-xs>
+    <!-- menu mobile -->
+      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="icon-button with a menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button *ngIf="isAuth" mat-menu-item (click)="goJournals()">
+          <mat-icon>menu_book</mat-icon>
+          <span>Mes journaux</span>
+        </button>
+        <button *ngIf="isAuth" mat-menu-item (click)="goFriends()">
+          <mat-icon>people_alt</mat-icon>
+          <span>Mes amis</span>
+        </button>
+        <button *ngIf="isAuth" mat-menu-item (click)="logout()">
+          <mat-icon>account_circle</mat-icon>
+          <span>Déconnexion</span>
+        </button>
+        <button *ngIf="!isAuth" mat-menu-item (click)="goNewAccount()">
+          <mat-icon>account_circle</mat-icon>
+          <span>Créer un compte</span>
+        </button>
+      </mat-menu>
+
+  </div>
+  <div>
+    <a routerLink="/" class="pdl-30">Colo Journal</a>
+  </div>
+  <div class="tac pdl-30" fxHide.xs>
+    <button *ngIf="isAuth" mat-icon-button (click)="goJournals()">
+      <mat-icon color="basic" class="example-icon">menu_book</mat-icon>
+    </button>
+  </div>
+  <div class="tac pdl-30" fxHide.xs>
+    <button *ngIf="isAuth" mat-icon-button (click)="goFriends()">
+      <mat-icon color="basic" class="example-icon">people_alt</mat-icon>
+    </button>
+  </div>
+  <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+    <button *ngIf="!isAuth" mat-stroked-button (click)="goNewAccount()">
+      Créer un compte
+    </button>
+    <button *ngIf="isAuth" mat-icon-button (click)="logout()" class="tac">
+      <mat-icon class="example-icon">account_circle</mat-icon>
+    </button>
+  </div>
+  </mat-toolbar-row>
+</mat-toolbar>

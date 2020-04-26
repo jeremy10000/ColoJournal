@@ -152,7 +152,7 @@ REST_FRAMEWORK = {
 
 # Django CORS Headers
 
-CORS_ORIGIN_WHITELIST = [os.environ.get('CORS_ORIGIN_WHITELIST')]
+CORS_ORIGIN_WHITELIST = []
 
 # Heroku and whitenoise
 if os.environ.get('ENV') == 'PRODUCTION':

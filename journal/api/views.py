@@ -1,10 +1,11 @@
 from django.shortcuts import get_object_or_404
-from rest_framework import status, viewsets, generics
+from rest_framework import generics, status, viewsets
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 
-from helpers.journal import list_journals, list_pages, check_shared_journals, check_shared_pages
 from helpers.friendship import check_friend
+from helpers.journal import (check_shared_journals, check_shared_pages,
+                             list_journals, list_pages)
 from journal.models import Journal, Page
 from users.models import User
 
@@ -158,23 +159,15 @@ class PageListAPIView(generics.ListAPIView):
     serializer_class = PageSerializer
 
     def list(self, request):
-        print('request.query_params', request.query_params)
         journal = request.query_params.get('id', None)
         journal = get_object_or_404(Journal.objects.all(), id=journal)
-        print('journal demandé', journal.name, 'id:', journal.id, 'user:', journal.user)
-        print('self.request.user:', self.request.user, 'id:', self.request.user.id)
-        # vérifie si l'user demandé est l'ami de celui qui demande...
+        # a friend ?
         is_friend = check_friend(self.request.user, journal.user)
-        # pas ami
         if is_friend is False:
-            print("Pas ami, pas de pages !")
             return Response(status=status.HTTP_403_FORBIDDEN)
-        # c'est un ami, on regarde si l'user demandé à des journaux partagés
-        print("OUI")
+
         shared_pages = check_shared_pages(journal.user, journal.id)
         if shared_pages is False:
-            print("Journal pas partagé, pas de pages !")
             return Response(status=status.HTTP_403_FORBIDDEN)
-        
-        
+
         return Response(shared_pages, status.HTTP_200_OK)

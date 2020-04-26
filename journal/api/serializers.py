@@ -27,7 +27,9 @@ class JournalSerializer(serializers.ModelSerializer):
 
 
 class PageSerializer(serializers.ModelSerializer):
-    journal_name = serializers.StringRelatedField(source='journal', read_only=True)
+    journal_name = serializers.StringRelatedField(
+        source='journal',
+        read_only=True)
 
     class Meta:
         model = Page

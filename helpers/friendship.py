@@ -30,7 +30,7 @@ def list_relationships(user):
     relations = Friendship.objects.filter(
         Q(sender=user) | Q(receiver=user)
     )
-    
+
     for relation in relations:
         # Requests received.
         if relation.receiver == user:
@@ -79,7 +79,7 @@ def check_friend(request_user, friend):
     """ Check if he's a friend. """
     try:
         relation = Friendship.objects.get(
-            Q(sender=request_user, receiver=friend, status='y') | 
+            Q(sender=request_user, receiver=friend, status='y') |
             Q(sender=friend, receiver=request_user, status='y')
         )
         return True

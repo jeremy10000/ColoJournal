@@ -1,0 +1,84 @@
+<!-- friends list -->
+<div fxLayout="row wrap" fxFlex.lt-md="100%" fxLayoutAlign="center none" 
+class="w-960 h-auto margin-a mt-15 mb-15">
+
+    <h2 class="title">MES AMIS</h2>
+
+    <div class="toolbar">
+      <button mat-stroked-button (click)="goProposition()">
+          <mat-icon>email</mat-icon> Demander en ami
+      </button>
+    </div>
+
+
+<mat-table *ngIf="showTableFriendsYes" [dataSource]="friendsYes" class="mat-elevation-z8 w-1p h-auto mb-20">
+  <!-- mail Column -->
+  <ng-container matColumnDef="mail">
+    <mat-header-cell *matHeaderCellDef> Mail </mat-header-cell>
+    <mat-cell *matCellDef="let element"><button mat-button (click)="goFriend(element.user_id)"> {{element.mail}} </button></mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+
+  <!-- waiting -->
+<h2 *ngIf="showTableFriendsWaiting" class="toolbar">EN ATTENTE</h2>
+
+<mat-table *ngIf="showTableFriendsWaiting" [dataSource]="friendsWaiting" class="mat-elevation-z8 w-1p h-auto mb-20">
+  <!-- mail Column -->
+  <ng-container matColumnDef="mail">
+    <mat-header-cell *matHeaderCellDef> Mail </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.mail}}</mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+
+<h2 *ngIf="showTableFriendsReceived" class="toolbar2">REÇUES</h2>
+
+<mat-table *ngIf="showTableFriendsReceived" [dataSource]="friendsReceived" class="mat-elevation-z8 w-1p h-auto mb-20">
+  <!-- mail Column -->
+  <ng-container matColumnDef="mail">
+    <mat-header-cell *matHeaderCellDef> Mail </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.mail}}</mat-cell>
+  </ng-container>
+
+  <!-- status Column -->
+  <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef> Réponse </mat-header-cell>
+    <mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="no(element.id, element.mail)" style="margin-right:10px;">
+          <mat-icon>thumb_down_alt</mat-icon>
+        </button>
+        <button mat-icon-button (click)="yes(element.id, element.mail)">
+          <mat-icon>thumb_up_alt</mat-icon>
+        </button>
+        
+    </mat-cell>
+  </ng-container>
+
+
+  <mat-header-row *matHeaderRowDef="displayedPropositionColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedPropositionColumns;"></mat-row>
+</mat-table>
+
+
+<h2 *ngIf="showTableFriendsNo" class="toolbar2">REFUSÉES</h2>
+
+<mat-table *ngIf="showTableFriendsNo" [dataSource]="friendsNo" class="mat-elevation-z8 w-1p h-auto mb-30">
+  <!-- mail Column -->
+  <ng-container matColumnDef="mail">
+    <mat-header-cell *matHeaderCellDef> Mail </mat-header-cell>
+    <mat-cell *matCellDef="let element">{{element.mail}}</mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+</div>

@@ -1,0 +1,25 @@
+<!-- my friend journals -->
+<div fxLayout="row wrap" fxFlex.lt-md="100%" fxLayoutAlign="center none" 
+class="w-960 h-auto margin-a mt-15 mb-15">
+
+    <!-- title bar -->
+    <h2 class="title">JOURNAUX DE MON AMI(E)</h2>
+
+
+<mat-table *ngIf="showTable" [dataSource]="journals" class="mat-elevation-z8 w-1p h-auto">
+  <!-- name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Nom </mat-header-cell>
+    <mat-cell *matCellDef="let element"><button mat-button (click)="goJournal(element.id)"> {{element.name}} </button></mat-cell>
+  </ng-container>
+
+  <!-- date Column -->
+  <ng-container matColumnDef="date">
+    <mat-header-cell *matHeaderCellDef> Date de départ </mat-header-cell>
+    <mat-cell *matCellDef="let element"> {{element.date}} </mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+</div>

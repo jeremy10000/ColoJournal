@@ -1,0 +1,18 @@
+<!-- my friend journal pages -->
+<div fxLayout="row wrap" fxFlex.lt-md="100%" fxLayoutAlign="center none" 
+class="w-960 h-auto margin-a mt-15 mb-15">
+
+  <!-- title bar -->
+  <h2 class="title">{{journalName}}</h2>
+
+
+<mat-table *ngIf="showTable" [dataSource]="pages" class="mat-elevation-z8 w-1p h-auto">
+  <!-- name Column -->
+  <ng-container matColumnDef="name">
+    <mat-header-cell *matHeaderCellDef> Pages </mat-header-cell>
+    <mat-cell *matCellDef="let element"><button mat-button (click)="openDialog(element)"> {{element.name}} </button></mat-cell>
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+  <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>

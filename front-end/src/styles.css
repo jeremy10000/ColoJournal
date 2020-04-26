@@ -1,1 +1,63 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+a, a:visited { color: white; text-decoration: none}
+
+.example-icon {
+    font-size: 30px;
+    padding-right: 5px;
+}
+
+.w-1p { width: 100%; }
+.w-960 { width: 960px; }
+.w-480 { width: 480px; }
+.w-350 {width: 350px;}
+
+.fs-18 {font-size: 18px;}
+
+.h-500 { height: 500px; }
+.h-auto { height: auto }
+.mh-1 { min-height: 1px; }
+
+.margin-a { margin: auto; }
+.mt-30 { margin-top: 30px; }
+.mt-15 { margin-top: 15px; }
+.mb-15 { margin-bottom: 15px; }
+.mb-20 { margin-bottom: 20px; }
+.mb-30 { margin-bottom: 30px; }
+.mb-35 { margin-bottom: 35px; }
+.mr-15 { margin-right: 15px; }
+
+.tac { text-align: center }
+.tal { text-align: left }
+
+.d-none { display:none }
+
+.pdr-0 {padding-right: 0px;}
+.pdl-30 {padding-left:30px;}
+
+.bg-y { background-color: yellow; }
+.bg-p { background-color: pink; }
+.bg-g { background-color: green; }
+
+.title {padding-left:10px; width: 100%;}
+.toolbar {padding-left:10px; width: 100%; margin-bottom:20px;}
+.toolbar2 {padding-left:10px; width: 100%; margin-top:20px;}
+
+.image-home {background-image: url(../src/assets/home.jpg);}
+.image-new {background-image: url(../src/assets/new.jpeg);}
+
+/* footer */
+.app {
+    min-height: 100%;
+    /* margin-bottom must be the same height as the footer height below */
+    margin-bottom: -30px; 
+}
+footer {
+    text-align: right;
+    padding-right: 25px;
+    height: 30px;
+    /* background: orange; */
+}

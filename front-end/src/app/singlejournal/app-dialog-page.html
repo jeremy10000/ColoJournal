@@ -1,0 +1,12 @@
+<!-- dialog page -->
+<h2 mat-dialog-title>{{data.name}}</h2>
+
+<mat-dialog-content class="mat-typography">
+    <div [innerHTML]="data.text | safe: 'html'"></div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close (click)="deletePage()">Effacer</button>
+    <button mat-button mat-dialog-close (click)="goEdit()">Editer</button>
+    <button mat-button mat-dialog-close cdkFocusInitial>Fermer</button>
+</mat-dialog-actions>

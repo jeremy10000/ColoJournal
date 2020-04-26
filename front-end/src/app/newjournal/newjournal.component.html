@@ -1,0 +1,32 @@
+<!-- new journal -->
+<div fxLayout="row wrap" fxFlex.lt-md="100%" fxLayoutAlign="center none" 
+class="w-960 h-500 margin-a tac">
+
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+      <div class="mt-15">
+
+        <mat-error *ngIf="myformError" class="mb-15">Remplissez correctement le formulaire.</mat-error>
+
+        <div class="tac">
+            <mat-form-field appearance="fill" class="w-350 fs-18 mb-20">
+                <mat-label>Titre du journal</mat-label>
+                <input matInput type="text" id="title" name="title" ngModel>
+            </mat-form-field>
+        </div>
+        
+        <mat-form-field class="w-350 fs-18 mb-15">
+                <input matInput [matDatepicker]="myDatepicker"
+                                [(ngModel)]="startDate"
+                                (dateInput)="showDate()"
+                                (dateChange)="showDate()"
+                                placeholder="Date de départ"
+                                name="startdate" readonly>
+
+                <mat-datepicker-toggle matSuffix [for]="myDatepicker"></mat-datepicker-toggle>
+                <mat-datepicker #myDatepicker disabled="false"></mat-datepicker>
+        </mat-form-field>
+      </div>
+        
+     <button mat-flat-button color="primary" type="submit">Créer un journal</button>
+    </form>
+</div>

@@ -28,7 +28,8 @@ class FriendshipViewSet(viewsets.ModelViewSet):
         return Response({
             'yes': relations.get('yes'),
             'no': relations.get('no'),
-            'waiting': relations.get('waiting')
+            'waiting': relations.get('waiting'),
+            'received': relations.get('received')
             }, status=status.HTTP_200_OK)
 
     def retrieve(self, request, id=None):
@@ -41,6 +42,8 @@ class FriendshipViewSet(viewsets.ModelViewSet):
 
     def create(self, request):
         """ Create a friendly relationship between two users."""
+        if request.data.get('sender') != str(self.request.user):
+            return Response(status=status.HTTP_403_FORBIDDEN)
 
         # Check if users exist.
         sender, receiver = check_user(request)

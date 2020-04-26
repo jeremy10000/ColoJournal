@@ -1,0 +1,10 @@
+<!-- dialog-page friend -->
+<h2 mat-dialog-title>{{data.name}}</h2>
+
+<mat-dialog-content class="mat-typography">
+  <div [innerHTML]="data.text | safe: 'html'"></div>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close cdkFocusInitial>Fermer</button>
+</mat-dialog-actions>

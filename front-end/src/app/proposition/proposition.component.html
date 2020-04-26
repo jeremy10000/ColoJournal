@@ -1,0 +1,20 @@
+<!-- proposition -->
+<div fxLayout="row wrap" fxFlex.lt-md="100%" fxLayoutAlign="center none" 
+class="w-960 h-500 margin-a tac">
+
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <div class="mt-15">
+
+        <mat-error *ngIf="myformError" class="mb-15">Remplissez correctement le formulaire.</mat-error>
+
+         <div class="tac">
+            <mat-form-field appearance="fill" class="w-350 fs-18 mb-20">
+             <mat-label>Adresse mail de la personne</mat-label>
+            <input matInput type="text" id="mail" name="mail" ngModel>
+            </mat-form-field>
+         </div>
+        </div>
+        
+        <button mat-flat-button color="primary" type="submit">Demander en ami</button>
+    </form>
+</div>

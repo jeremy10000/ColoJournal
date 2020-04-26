@@ -27,10 +27,11 @@ class JournalSerializer(serializers.ModelSerializer):
 
 
 class PageSerializer(serializers.ModelSerializer):
+    journal_name = serializers.StringRelatedField(source='journal', read_only=True)
 
     class Meta:
         model = Page
-        fields = ["id", "name", "text", "journal"]
+        fields = ["id", "name", "text", "journal", "journal_name"]
 
     def create(self, validated_data):
         """ Create a new page. """

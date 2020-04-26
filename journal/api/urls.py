@@ -9,5 +9,5 @@ router.register(r'journals', JournalViewSet)
 router.register(r'pages', PageViewSet)
 
 urlpatterns = [
-    path('', include(router.urls)),
+    path('', include(router.urls))
 ]

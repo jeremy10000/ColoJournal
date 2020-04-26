@@ -80,6 +80,16 @@
         }
     },
     {
+        "model": "journal.journal", 
+        "pk": 5, 
+        "fields": {
+            "name": "Afrique du Sud",
+            "user": 1,
+            "shared": true,
+            "date": "2020-01-20"
+        }
+    },
+    {
         "model": "journal.page", 
         "pk": 1, 
         "fields": {
@@ -104,6 +114,15 @@
             "name": "La capitale",
             "journal": 4,
             "text": "Nous avons visités..."
+        }
+    },
+    {
+        "model": "journal.page", 
+        "pk": 4, 
+        "fields": {
+            "name": "Jour 1 en ADS",
+            "journal": 5,
+            "text": "Nous avons..."
         }
     }
 ]

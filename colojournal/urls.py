@@ -16,13 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from rest_framework.authtoken.views import ObtainAuthToken
+# from rest_framework.authtoken.views import ObtainAuthToken
+from users.api.views import ObtainAuthTokenUser
+from journal.api.views import JournalListAPIView, PageListAPIView
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/login/', ObtainAuthToken.as_view()),
+    path('api/login/', ObtainAuthTokenUser.as_view()),
     path('api/', include('users.api.urls')),
     path('api/', include('friendship.api.urls')),
-    path('api/', include('journal.api.urls'))
+    path('api/', include('journal.api.urls')),
+    path('api/friend/', JournalListAPIView.as_view()),
+    path('api/friend/pages/', PageListAPIView.as_view())
 ]

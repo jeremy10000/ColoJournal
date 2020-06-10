@@ -20,6 +20,6 @@ Cette application permet à des utilisateurs de rédiger des journaux et de les 
 ## Screeshots
 
 <img src="readme/homepage.png" alt="Home page"
-style="margin-right: 10px" width="200"/>
-<img src="readme/jounaux.png" alt="Jounaux"
-style="margin-right: 10px" width="200"/>
+style="margin-right: 10px" width="300"/>
+<img src="readme/journaux.png" alt="Journaux"
+style="margin-right: 10px" width="300"/>
